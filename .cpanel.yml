@@ -1,5 +1,14 @@
+# ---
+# deployment:
+#   tasks:
+#     - export DEPLOYPATH=/home/goldendy/public_html/
+#     - /bin/cp -R images $DEPLOYPATH
+
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/goldendy/public_html/
-    - /bin/cp -R images $DEPLOYPATH
+    - export NODE_ENV=production
+    - source /opt/cpanel/ea-nodejs20/enable  # or whichever version cPanel supports
+    - npm install
+    - npx @11ty/eleventy
+    - /bin/cp -a public/. public_html/
