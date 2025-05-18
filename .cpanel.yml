@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/goldendy/public_html
-    - /bin/cp -r public/* $DEPLOYPATH
+    - export DEPLOYPATH=/home/goldendy/public_html/
+    - /bin/cp -R images $DEPLOYPATH
